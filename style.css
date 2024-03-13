@@ -21,7 +21,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1;
+  z-index: 2;
 }
 header svg {
   width: 200px;
@@ -47,13 +47,95 @@ nav a {
   top: 38px;
 }
 
-.hamburger a {
-  top: 38px;
-  display: block;
-  right: 50px;
-  position: absolute;
+.navbar a {
+  padding: 0;
+  margin: 0 13px;
+  position: relative;
 }
 
+.navbar a:before {
+  content: "";
+  width: 0;
+  right: 0;
+  bottom: -3px;
+  height: 2px;
+  background-color: #fff;
+  position: absolute;
+  transition: width 0.2s linear;
+}
+
+.navbar a:hover:before {
+  right: initial;
+  left: 0;
+  width: 100%;
+}
+
+.navbar {
+  display: none;
+}
+@media (min-width: 1000px) {
+  .navbar {
+    display: block;
+  }
+}
+.hamburger {
+  z-index: 3;
+  top: 40px;
+  display: block;
+  right: 25px;
+  position: fixed;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  width: 16px;
+  margin: 2px 0;
+  height: 2px;
+  background-color: #fff;
+  transition: all 0.2s linear;
+}
+.hamburger.active span:last-child {
+  opacity: 0;
+}
+
+.hamburger.active span:first-child,
+.hamburger.active span:nth-child(2) {
+  transform: rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+  transform: rotate(-45deg);
+  top: 0px;
+}
+nav.mobile-nav {
+  display: none;
+}
+nav.mobile-nav.active {
+  padding-top: 60px;
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  width: 280px;
+  background-color: #000;
+}
+nav.mobile-nav.active a {
+  display: block;
+  border-bottom: 1px solid #222;
+  text-transform: uppercase;
+  padding: 16px;
+  text-decoration: none;
+  text-align: right;
+  font-weight: 400;
+}
+.shadow.active {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
 section {
   min-height: 100vh;
   background-position: center center;
@@ -65,4 +147,67 @@ section {
   background-color: #000;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+section div.content {
+  position: absolute;
+  bottom: 20%;
+  left: 15%;
+  text-align: left;
+  width: 50%;
+  max-width: 520px;
+}
+
+section p {
+  font-size: 20px;
+  font-weight: 100;
+  margin-bottom: 0 !important;
+}
+
+section h2 {
+  max-width: 90%;
+  font-size: 48px;
+  text-transform: uppercase;
+  line-height: 48px;
+  margin-top: 3px !important;
+}
+
+a.btn {
+  text-decoration: none;
+  min-width: 130px;
+  padding: 15px 55px;
+  margin: 30px 0;
+  border: 2px solid #fff;
+}
+
+a.btn:hover {
+  background-color: #fff;
+  width: 100%;
+  color: #000;
+  transition: width 0.2s linear;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.footer p {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
+  padding: 20px;
+}
+
+.footer a {
+  text-decoration: none;
 }
