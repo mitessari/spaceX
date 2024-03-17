@@ -263,6 +263,40 @@ section h2 {
   margin-top: 3px !important;
 }
 
+.bg-video {
+  display: block;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.scrollme {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scrollme svg {
+  animation: 2.5s scrollIcon infinite;
+}
+.scrollme svg path {
+  fill: none;
+  stroke: #fff;
+}
+@keyframes scrollIcon {
+  0% {
+    opacity: 0;
+    top: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    top: 15px;
+  }
+}
+
 a.btn {
   text-decoration: none;
   min-width: 130px;
